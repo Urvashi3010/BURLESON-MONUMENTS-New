@@ -2120,9 +2120,14 @@ button {
   margin: auto;
 }
 
-.hero-content {
+.home-hero-inner .hero-content {
+  position: relative;
+  z-index: 2;
   flex: 1;
   max-width: 570px;
+  width: auto;
+  margin: 0;
+  padding: 0;
 }
 
 .home-hero-image {
@@ -2182,6 +2187,9 @@ button {
 
   .hero-content {
     max-width: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
     text-align: left;
   }
 
