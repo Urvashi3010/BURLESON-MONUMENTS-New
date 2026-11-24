@@ -120,15 +120,17 @@ function Memorials() {
 
           <div className="memorial-main-content">
 
-          <ScrollReveal>
-            <span className="section-label">
-              MEMORIAL COLLECTION
-            </span>
+          {category !== 'memorial-photos' && (
+            <ScrollReveal>
+              <span className="section-label">
+                MEMORIAL COLLECTION
+              </span>
 
-            <h2 className="selected-category-title">
-              {selectedCategory.name}
-            </h2>
-          </ScrollReveal>
+              <h2 className="selected-category-title">
+                {selectedCategory.name}
+              </h2>
+            </ScrollReveal>
+          )}
 {category === 'inscriptions' ? (
   <div className="inscriptions-content">
 
@@ -151,7 +153,38 @@ function Memorials() {
     </ScrollReveal>
 
     </div>
-    ) : (
+      ) : category === 'memorial-photos' ? (
+  <section className="porcelain-gallery">
+
+    <h2 className="selected-category-title">
+  {selectedCategory.name}
+</h2>
+
+    <div className="porcelain-pricing">
+      <span>#4 Oval 3 1/8" X 4" = $265</span>
+      <span>#5 Oval 3 1/2" X 4 3/4" = $295</span>
+    </div>
+
+    <div className="porcelain-grid">
+      {categoryImages.slice(0, 5).map(([path, image], index) => {
+        const names = ['Oval', 'Round', 'Heart', 'Rectangle', 'Dome'];
+
+        return (
+          <div className="porcelain-card" key={path}>
+            <h3>{names[index]}</h3>
+            <img
+              src={image}
+              alt={names[index]}
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        );
+      })}
+    </div>
+
+  </section>
+) : (
     <>
         <ScrollReveal className="memorial-photo-grid">
         {categoryImages.map(([path, image], index) => (

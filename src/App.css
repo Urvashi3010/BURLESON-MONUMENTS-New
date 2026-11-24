@@ -3304,6 +3304,48 @@ button {
     linear-gradient(120deg, #fbf6ec 0%, #fffefa 58%, #f3ecdf 100%) !important;
 }
 
+.home-hero-image {
+  position: relative;
+  isolation: isolate;
+}
+
+.home-hero-image::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 8% 2%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(216, 154, 74, 0.34), rgba(37, 36, 155, 0.12) 48%, transparent 72%);
+  filter: blur(24px);
+  animation: homeHeroGlow 5s ease-in-out infinite alternate;
+}
+
+.home-hero-image img {
+  box-shadow:
+    0 18px 38px rgba(37, 36, 155, 0.18),
+    0 0 24px rgba(216, 154, 74, 0.2),
+    0 0 0 6px rgba(216, 154, 74, 0.08);
+}
+
+.home-hero-image img:hover {
+  box-shadow:
+    0 24px 45px rgba(37, 36, 155, 0.22),
+    0 0 34px rgba(216, 154, 74, 0.32),
+    0 0 0 6px rgba(216, 154, 74, 0.14);
+}
+
+@keyframes homeHeroGlow {
+  from {
+    opacity: 0.55;
+    transform: scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
 .about-banner {
   position: relative;
   overflow: hidden;
@@ -3532,4 +3574,88 @@ button {
   .gallery-card {
     height: 150px;
   }
+}
+
+.porcelain-gallery {
+  width: 100%;
+  padding: 15px 20px 40px;
+  text-align: center;
+}
+
+/* Memorial Photos heading - same style as other category headings */
+.porcelain-gallery .selected-category-title {
+  margin-bottom: 25px;
+}
+
+/* Pricing */
+.porcelain-pricing {
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  flex-wrap: wrap;
+  margin-bottom: 35px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Images layout */
+.porcelain-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px 20px;
+}
+
+.porcelain-card h3 {
+  font-size: 19px;
+  text-decoration: underline;
+  margin-bottom: 15px;
+}
+
+.porcelain-card img {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  display: block;
+  margin: auto;
+}
+
+@media (max-width: 600px) {
+  .porcelain-gallery {
+    padding: 15px 5px 30px;
+  }
+
+  .porcelain-pricing {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .porcelain-grid {
+    gap: 25px 10px;
+  }
+
+  .porcelain-card img {
+    width: 140px;
+    height: 140px;
+  }
+}
+.nav-contact,
+.nav-contact:visited,
+.nav-contact:focus,
+.nav-contact:active,
+.nav-contact.active {
+  background-color: var(--navy) !important;
+  color: var(--white) !important;
+  outline: none;
+  box-shadow: none;
+}
+
+.home-hero .hero-title,
+.about-banner h1,
+.page-banner h1,
+.testimonials-hero-content h1 {
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  text-wrap: balance;
 }
