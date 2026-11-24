@@ -162,7 +162,12 @@ function Memorials() {
                 setSelectedImage(selectedImage === path ? null : path)
             }
             >
-            <img src={image} alt="Memorial design" />
+            <img
+              src={image}
+              alt="Memorial design"
+              loading={index < 2 ? 'eager' : 'lazy'}
+              decoding="async"
+            />
             </div>
         ))}
         </ScrollReveal>
