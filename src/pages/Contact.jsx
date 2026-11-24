@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { MapPin, Phone, Mail, Clock, ArrowRight } from 'lucide-react';
+import contactHeroImage from '../assets/images/fan-cards/home-04.webp';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -70,16 +71,17 @@ useEffect(() => {
     <div className="contact-page">
 
       <section className="page-banner contact-banner">
-       <div>
-       <span className="section-label">GET IN TOUCH</span>
-
-         <h1>Contact Us</h1>
-
-        <p className="typing-text">
-          {displayText}
-          <span className="typing-cursor">|</span>
-        </p>
-       </div>
+        <div className="contact-banner-content">
+          <span className="section-label">GET IN TOUCH</span>
+          <h1>Contact Us</h1>
+          <p className="typing-text">
+            {displayText}
+            <span className="typing-cursor">|</span>
+          </p>
+        </div>
+        <div className="contact-banner-image hero-image-reveal">
+          <img src={contactHeroImage} alt="Memorial in a peaceful cemetery" />
+        </div>
       </section>
 
       <section className="contact-content">

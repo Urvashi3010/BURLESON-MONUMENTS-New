@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, ChevronDown } from 'lucide-react';
 
 export const memorialCategories = [
   { name: 'Single Markers – Granite', slug: 'single-markers-granite' },
@@ -25,11 +26,24 @@ export const memorialCategories = [
 ];
 
 function MemorialSidebar({ title = 'Memorial Products' }) {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <aside className="memorial-sidebar">
-      <h3>{title}</h3>
 
-      <div className="sidebar-links">
+      <button
+        className="sidebar-toggle"
+        onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
+      >
+        <span>{title}</span>
+        <ChevronDown
+          className={isOpen ? 'toggle-icon rotated' : 'toggle-icon'}
+          size={19}
+        />
+      </button>
+
+      <div className={`sidebar-links ${isOpen ? 'mobile-open' : ''}`}>
         {memorialCategories.map((category) => (
           <NavLink
             key={category.slug}
@@ -41,6 +55,7 @@ function MemorialSidebar({ title = 'Memorial Products' }) {
           </NavLink>
         ))}
       </div>
+
     </aside>
   );
 }

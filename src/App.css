@@ -2758,6 +2758,49 @@ button {
   line-height: 1.8;
 }
 
+.contact-banner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.9fr);
+  align-items: center;
+  gap: 48px;
+}
+
+.contact-banner-content {
+  min-width: 0;
+}
+
+.contact-banner-image {
+  width: 100%;
+  max-width: 430px;
+  justify-self: end;
+}
+
+.contact-banner-image img {
+  display: block;
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border: 1px solid rgba(216, 154, 74, 0.55);
+  border-radius: 10px;
+  box-shadow: 0 18px 38px rgba(37, 36, 155, 0.16);
+}
+
+@media (max-width: 768px) {
+  .contact-banner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .contact-banner-image {
+    justify-self: start;
+    max-width: 100%;
+  }
+
+  .contact-banner-image img {
+    height: 260px;
+  }
+}
+
 .typing-cursor {
   display: inline-block;
   color: var(--gold);
@@ -3124,5 +3167,129 @@ button {
 
   .ordering-options {
     margin-left: 0;
+  }
+}
+/* TESTIMONIALS MOBILE LAYOUT FIX */
+
+@media (max-width: 768px) {
+  .testimonials-hero {
+    min-height: auto;
+    padding: 30px 5% 55px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+    overflow: hidden;
+  }
+
+  .testimonials-hero-content {
+    width: 100%;
+    max-width: 100%;
+    flex: none;
+  }
+
+  .testimonials-hero-visual {
+    width: 100%;
+    max-width: 480px;
+    height: 370px;
+    flex: 0 0 370px;
+    margin: 0 auto;
+    position: relative;
+    overflow: visible;
+  }
+
+  .frame-one {
+    top: 0;
+    left: 10px;
+  }
+
+  .frame-two {
+    top: 95px;
+    left: 35%;
+  }
+
+  .frame-three {
+    top: 0;
+    right: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonials-hero-visual {
+    height: 350px;
+    flex-basis: 350px;
+  }
+
+  .frame-one {
+    left: 0;
+  }
+
+  .frame-two {
+    top: 90px;
+    left: 32%;
+  }
+
+  .frame-three {
+    right: 0;
+  }
+}
+
+/* MEMORIAL SIDEBAR MOBILE DROPDOWN */
+
+/* Desktop: Keep existing sidebar appearance */
+.sidebar-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: default;
+}
+
+.sidebar-toggle .toggle-icon {
+  display: none;
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .memorial-sidebar {
+    width: 100%;
+    margin-bottom: 25px;
+  }
+
+  .sidebar-toggle {
+    padding: 15px 18px;
+    background: var(--navy);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .sidebar-toggle .toggle-icon {
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .sidebar-toggle .toggle-icon.rotated {
+    transform: rotate(180deg);
+  }
+
+  .sidebar-links {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+    margin-top: 0;
+  }
+
+  .sidebar-links.mobile-open {
+    max-height: 65vh;
+    overflow-y: auto;
+    margin-top: 8px;
   }
 }
