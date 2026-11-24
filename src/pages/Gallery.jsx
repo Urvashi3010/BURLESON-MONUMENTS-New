@@ -12,6 +12,10 @@ const excludedCategories = [
   'bronze-plaques'
 ];
 
+const categoryOrder = [
+  'companion-markers-bronze',
+];
+
 const galleryImages = Object.entries(
   import.meta.glob(
     '../assets/images/memorials/**/*.{jpg,jpeg,png,webp}',
@@ -23,16 +27,31 @@ const galleryImages = Object.entries(
       path.toLowerCase().includes(`/${category}/`)
     );
   })
-  .sort(([a], [b]) =>
-    a.localeCompare(b, undefined, { numeric: true })
-  );
+  .sort(([a], [b]) => {
+    const getCategory = (path) =>
+      path.split('/').slice(-2, -1)[0].toLowerCase();
 
+    const categoryA = getCategory(a);
+    const categoryB = getCategory(b);
+
+    const rankA = categoryOrder.indexOf(categoryA);
+    const rankB = categoryOrder.indexOf(categoryB);
+
+    const orderA = rankA === -1 ? 1 : 0;
+    const orderB = rankB === -1 ? 1 : 0;
+
+    if (orderA !== orderB) return orderA - orderB;
+
+    if (rankA !== rankB) return rankA - rankB;
+
+    return a.localeCompare(b, undefined, { numeric: true });
+  });
 function Gallery() {
     const [selectedImage, setSelectedImage] = useState(null);
   return (
     <div className="gallery-page">
 
-      <section className="page-banner">
+      <section className="page-banner gallery-banner">
         <div>
           <span className="section-label">OUR WORK</span>
           <h1>Memorial Gallery</h1>

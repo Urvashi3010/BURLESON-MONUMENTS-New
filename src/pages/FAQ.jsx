@@ -47,7 +47,7 @@ function FAQ() {
     <div className="faq-page">
 
       {/* PAGE BANNER */}
-      <section className="page-banner">
+      <section className="page-banner faq-banner">
         <div>
           <span className="section-label">HELP & INFORMATION</span>
           <h1>Frequently Asked Questions</h1>

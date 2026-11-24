@@ -103,7 +103,7 @@ function Memorials() {
   return (
     <div className="memorials-page">
 
-      <section className="page-banner">
+      <section className="page-banner memorials-banner">
         <div>
           <span className="section-label">OUR COLLECTION</span>
           <h1>Memorial Products</h1>

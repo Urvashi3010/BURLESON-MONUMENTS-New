@@ -3293,3 +3293,243 @@ button {
     margin-top: 8px;
   }
 }
+
+/* Page-specific hero treatments */
+
+.home-hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 82% 18%, rgba(216, 154, 74, 0.13), transparent 34%),
+    linear-gradient(120deg, #fbf6ec 0%, #fffefa 58%, #f3ecdf 100%) !important;
+}
+
+.about-banner {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 82% 50%, rgba(216, 154, 74, 0.18), transparent 22%),
+    linear-gradient(115deg, #1d1b75 0%, var(--navy) 62%, #3935a9 100%);
+}
+
+.about-banner::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 12%;
+  width: 230px;
+  height: 230px;
+  border: 1px solid rgba(216, 154, 74, 0.45);
+  border-radius: 50%;
+  box-shadow: 0 0 0 18px rgba(216, 154, 74, 0.06), 0 0 0 38px rgba(216, 154, 74, 0.04);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.about-banner-content {
+  position: relative;
+  z-index: 1;
+}
+
+.about-banner h1 {
+  color: var(--white);
+}
+
+.about-banner p {
+  color: rgba(255, 254, 250, 0.82);
+}
+
+.memorials-banner {
+  position: relative;
+  overflow: hidden;
+  border-left: 8px solid var(--gold);
+  background: linear-gradient(100deg, #fbf6ec 0%, #fffefa 74%, #f3ecdf 100%);
+}
+
+.memorials-banner::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 11%;
+  width: 180px;
+  height: 180px;
+  border: 18px solid rgba(216, 154, 74, 0.14);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.memorials-banner > div {
+  position: relative;
+  z-index: 1;
+}
+
+.gallery-banner {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 82% 50%, rgba(216, 154, 74, 0.18), transparent 25%),
+    linear-gradient(115deg, #17165f 0%, var(--navy) 65%, #302d9f 100%);
+}
+
+.gallery-banner::after {
+  content: '';
+  position: absolute;
+  right: 10%;
+  top: 50%;
+  width: 210px;
+  height: 150px;
+  border: 1px solid rgba(216, 154, 74, 0.55);
+  border-radius: 48% 48% 4px 4px;
+  transform: translateY(-50%) rotate(-8deg);
+  box-shadow: 12px 12px 0 -1px transparent, 12px 12px 0 0 rgba(216, 154, 74, 0.32);
+  pointer-events: none;
+}
+
+.gallery-banner > div {
+  position: relative;
+  z-index: 1;
+}
+
+.gallery-banner h1 {
+  color: var(--white);
+}
+
+.gallery-banner p {
+  color: rgba(255, 254, 250, 0.82);
+}
+
+.faq-banner {
+  position: relative;
+  justify-content: flex-start;
+  overflow: hidden;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(135deg, #fffefa 0%, #fbf6ec 58%, #f3ecdf 100%);
+}
+
+.faq-banner::after {
+  content: '?';
+  position: absolute;
+  right: 13%;
+  top: 50%;
+  color: rgba(37, 36, 155, 0.08);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(180px, 24vw, 280px);
+  font-weight: 700;
+  line-height: 1;
+  transform: translateY(-54%);
+  pointer-events: none;
+}
+
+.faq-banner > div {
+  position: relative;
+  z-index: 1;
+}
+
+.faq-banner p {
+  margin: 0;
+}
+
+.ordering-banner {
+  position: relative;
+  overflow: hidden;
+  border-top: 5px solid var(--gold);
+  background: linear-gradient(105deg, #f3ecdf 0%, #fffefa 56%, #fbf6ec 100%);
+}
+
+.ordering-banner > div {
+  position: relative;
+  z-index: 1;
+}
+
+.testimonials-hero {
+  position: relative;
+  background:
+    radial-gradient(circle at 80% 45%, rgba(216, 154, 74, 0.16), transparent 28%),
+    linear-gradient(115deg, #17165f 0%, var(--navy) 65%, #302d9f 100%);
+}
+
+.testimonials-hero::before {
+  content: '“';
+  position: absolute;
+  top: -90px;
+  left: 4%;
+  color: rgba(255, 254, 250, 0.06);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 360px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.testimonials-hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.testimonials-hero-content h1 {
+  color: var(--white);
+}
+
+.testimonials-hero-content p {
+  color: rgba(255, 254, 250, 0.82);
+}
+
+.testimonials-hero-visual {
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .about-banner::after,
+  .memorials-banner::after,
+  .gallery-banner::after,
+  .faq-banner::after {
+    right: 5%;
+    opacity: 0.55;
+  }
+
+  .testimonials-hero::before {
+    left: -8%;
+    top: -45px;
+    font-size: 260px;
+  }
+}
+
+/* GALLERY - SMALLER IMAGE CARDS */
+
+.gallery-grid {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.gallery-card {
+  height: 210px;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@media (max-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+
+  .gallery-card {
+    height: 190px;
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .gallery-card {
+    height: 150px;
+  }
+}

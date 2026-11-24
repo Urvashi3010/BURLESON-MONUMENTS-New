@@ -4,7 +4,7 @@ import memorialImage from '../assets/images/memorials/memorial-photos/memorial-p
 function OrderingPrices() {
   return (
     <div className="ordering-page">
-      <section className="page-banner">
+      <section className="page-banner ordering-banner">
         <div>
           <span className="section-label">ORDERING INFORMATION</span>
           <h1>Ordering &amp; Prices</h1>
