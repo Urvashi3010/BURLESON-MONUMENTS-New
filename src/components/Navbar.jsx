@@ -43,8 +43,8 @@ function Navbar() {
                 <NavLink to="/memorials" onClick={closeMenu}>
                   All Memorials
                 </NavLink>
-                <NavLink to="/gallery" onClick={() => setIsMenuOpen(false)}>
-                Gallery
+                <NavLink to="/gallery" onClick={closeMenu}>
+                  Gallery
                 </NavLink>
               </div>
             )}

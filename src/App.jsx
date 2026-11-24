@@ -15,7 +15,7 @@ import './App.css';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/BURLESON-MONUMENTS-New">
       <ScrollToTop />
 
       <Navbar />
