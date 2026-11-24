@@ -61,6 +61,7 @@ useEffect(() => {
             )}
           </div>
 
+          <NavLink to="/ordering-prices" onClick={closeMenu}>Ordering / Prices</NavLink>
           <NavLink to="/testimonials" onClick={closeMenu}>Testimonials</NavLink>
           <NavLink to="/faq" onClick={closeMenu}>FAQ</NavLink>
 

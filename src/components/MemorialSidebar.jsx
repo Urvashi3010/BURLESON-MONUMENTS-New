@@ -24,10 +24,10 @@ export const memorialCategories = [
   { name: 'Pet Memorials', slug: 'pet-memorials' }
 ];
 
-function MemorialSidebar() {
+function MemorialSidebar({ title = 'Memorial Products' }) {
   return (
     <aside className="memorial-sidebar">
-      <h3>Memorial Products</h3>
+      <h3>{title}</h3>
 
       <div className="sidebar-links">
         {memorialCategories.map((category) => (

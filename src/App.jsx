@@ -8,6 +8,7 @@ import About from './pages/About';
 import Memorials from './pages/Memorials';
 import Gallery from './pages/Gallery';
 import Testimonials from './pages/Testimonials';
+import OrderingPrices from './pages/OrderingPrices';
 import FAQ from './pages/FAQ';
 import Contact from './pages/Contact';
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/memorials" element={<Memorials />} />
           <Route path="/memorials/:category" element={<Memorials />} />
+          <Route path="/ordering-prices" element={<OrderingPrices />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/faq" element={<FAQ />} />
