@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { MapPin, Phone, Mail, Clock, ArrowRight } from 'lucide-react';
 
 function Contact() {
@@ -10,6 +10,40 @@ function Contact() {
     message: ''
   });
 
+  const typingWords = [
+  'We are here to help.',
+  'Your questions matter to us.',
+  'Let us help you create a lasting memory.'
+];
+
+const [wordIndex, setWordIndex] = useState(0);
+const [displayText, setDisplayText] = useState('');
+const [isDeleting, setIsDeleting] = useState(false);
+
+useEffect(() => {
+  const currentWord = typingWords[wordIndex];
+
+  let speed = isDeleting ? 45 : 100;
+
+  if (!isDeleting && displayText === currentWord) {
+    speed = 1600;
+  }
+
+  const timer = setTimeout(() => {
+    if (!isDeleting && displayText === currentWord) {
+      setIsDeleting(true);
+    } else if (isDeleting && displayText === '') {
+      setIsDeleting(false);
+      setWordIndex((prev) => (prev + 1) % typingWords.length);
+    } else if (isDeleting) {
+      setDisplayText(currentWord.substring(0, displayText.length - 1));
+    } else {
+      setDisplayText(currentWord.substring(0, displayText.length + 1));
+    }
+  }, speed);
+
+  return () => clearTimeout(timer);
+}, [displayText, isDeleting, wordIndex]);
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -35,12 +69,17 @@ function Contact() {
   return (
     <div className="contact-page">
 
-      <section className="page-banner">
-        <div>
-          <span className="section-label">GET IN TOUCH</span>
-          <h1>Contact Us</h1>
-          <p>We are here to help you create a meaningful memorial.</p>
-        </div>
+      <section className="page-banner contact-banner">
+       <div>
+       <span className="section-label">GET IN TOUCH</span>
+
+         <h1>Contact Us</h1>
+
+        <p className="typing-text">
+          {displayText}
+          <span className="typing-cursor">|</span>
+        </p>
+       </div>
       </section>
 
       <section className="contact-content">

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { useState } from 'react';
+import ScrollReveal from '../components/ScrollReveal';
 
 const excludedCategories = [
   'pet-memorials',
@@ -44,27 +45,27 @@ function Gallery() {
 
       <section className="gallery-content">
 
-        <div className="gallery-heading">
-          <span className="section-label">OUR COLLECTION</span>
-          <h2>Memorials and Designs</h2>
-          <p>
-            Browse different memorial styles and design options.
-          </p>
-        </div>
+        <ScrollReveal className="gallery-heading">
+        <span className="section-label">OUR COLLECTION</span>
+        <h2>Memorials and Designs</h2>
+        <p>
+          Browse different memorial styles and design options.
+        </p>
+      </ScrollReveal>
 
-        <div className="gallery-grid">
-          {galleryImages.map(([path, image], index) => (
-           <div
+       <div className="gallery-grid">
+        {galleryImages.map(([path, image]) => (
+          <div
             className={`gallery-card ${selectedImage === path ? 'is-selected' : ''}`}
             key={path}
             onClick={() =>
-                setSelectedImage(selectedImage === path ? null : path)
+              setSelectedImage(selectedImage === path ? null : path)
             }
-            >
+          >
             <img src={image} alt="Memorial" />
-            </div>
-          ))}
-        </div>
+          </div>
+        ))}
+      </div>
 
         {galleryImages.length === 0 && (
           <p className="no-memorial-images">

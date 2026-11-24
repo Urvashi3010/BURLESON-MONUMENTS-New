@@ -1,10 +1,21 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+useEffect(() => {
+  const handleScroll = () => {
+    setScrolled(window.scrollY > 50);
+  };
+
+  window.addEventListener('scroll', handleScroll);
+
+  return () => window.removeEventListener('scroll', handleScroll);
+}, []);
 
   const closeMenu = () => {
     setMenuOpen(false);
@@ -12,7 +23,7 @@ function Navbar() {
   };
 
   return (
-    <header className="navbar">
+    <header className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
       <div className="navbar-container">
 
         <NavLink to="/" className="logo" onClick={closeMenu}>

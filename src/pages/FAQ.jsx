@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import ScrollReveal from '../components/ScrollReveal';
 
 const faqs = [
   {
@@ -45,6 +46,7 @@ function FAQ() {
   return (
     <div className="faq-page">
 
+      {/* PAGE BANNER */}
       <section className="page-banner">
         <div>
           <span className="section-label">HELP & INFORMATION</span>
@@ -53,58 +55,67 @@ function FAQ() {
         </div>
       </section>
 
+      {/* FAQ CONTENT */}
       <section className="faq-content">
 
-        <div className="faq-heading">
+        <ScrollReveal className="faq-heading">
           <span className="section-label">HOW CAN WE HELP?</span>
           <h2>Common Questions</h2>
           <p>
             We understand that choosing a memorial involves many decisions.
             Here are answers to some common questions.
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className="faq-list">
           {faqs.map((faq, index) => (
-            <div
-              className={`faq-item ${
-                activeIndex === index ? 'active' : ''
-              }`}
-              key={index}
-            >
-              <button
-                className="faq-question"
-                onClick={() => toggleFAQ(index)}
-                aria-expanded={activeIndex === index}
+            <ScrollReveal key={index} delay={index * 80}>
+              <div
+                className={`faq-item ${
+                  activeIndex === index ? 'active' : ''
+                }`}
               >
-                <span>{faq.question}</span>
+                <button
+                  className="faq-question"
+                  onClick={() => toggleFAQ(index)}
+                  aria-expanded={activeIndex === index}
+                >
+                  <span>{faq.question}</span>
 
-                <ChevronDown
-                  size={20}
-                  className="faq-chevron"
-                />
-              </button>
+                  <ChevronDown
+                    size={20}
+                    className="faq-chevron"
+                  />
+                </button>
 
-              {activeIndex === index && (
-                <div className="faq-answer">
-                  <p>{faq.answer}</p>
+                <div
+                  className={`faq-answer ${
+                    activeIndex === index ? 'faq-answer-open' : ''
+                  }`}
+                >
+                  <div className="faq-answer-inner">
+                    <p>{faq.answer}</p>
+                  </div>
                 </div>
-              )}
-            </div>
+              </div>
+            </ScrollReveal>
           ))}
         </div>
 
-        <div className="faq-contact">
-          <h3>Still Have Questions?</h3>
-          <p>
-            Our team is here to help you understand your options
-            and guide you through the process.
-          </p>
+        {/* CONTACT SECTION */}
+        <ScrollReveal>
+          <div className="faq-contact">
+            <h3>Still Have Questions?</h3>
+            <p>
+              Our team is here to help you understand your options
+              and guide you through the process.
+            </p>
 
-          <Link to="/contact" className="btn-primary">
-            Contact Our Team
-          </Link>
-        </div>
+            <Link to="/contact" className="btn-primary">
+              Contact Our Team
+            </Link>
+          </div>
+        </ScrollReveal>
 
       </section>
     </div>

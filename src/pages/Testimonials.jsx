@@ -1,4 +1,8 @@
 import { Quote, Star } from 'lucide-react';
+import ScrollReveal from '../components/ScrollReveal';
+import home05 from '../assets/images/fan-cards/home-05.jpg';
+import home06 from '../assets/images/fan-cards/home-06.jpg';
+import home08 from '../assets/images/fan-cards/home-02.jpg';
 
 const testimonials = [
   {
@@ -35,17 +39,41 @@ function Testimonials() {
   return (
     <div className="testimonials-page">
 
-      <section className="page-banner">
-        <div>
-          <span className="section-label">KIND WORDS</span>
-          <h1>Customer Testimonials</h1>
-          <p>Hear from families who have trusted us to honor their loved ones.</p>
-        </div>
-      </section>
+     <section className="testimonials-hero">
+  <div className="testimonials-hero-content">
+    <span className="section-label">CUSTOMER TESTIMONIALS</span>
 
+    <h1>
+      Stories That
+      <br />
+      <span>Speak From The Heart</span>
+    </h1>
+
+    <p>
+      Every memorial tells a story. Hear from families who have
+      trusted us to create lasting tributes for their loved ones.
+    </p>
+  </div>
+
+  <div className="testimonials-hero-visual">
+    <div className="vintage-frame frame-one">
+      <img src={home05} alt="Memorial craftsmanship" />
+    </div>
+
+    <div className="vintage-frame frame-two">
+      <img src={home06} alt="Memorial design" />
+    </div>
+
+    <div className="vintage-frame frame-three">
+      <img src={home08} alt="Memorial monument" />
+    </div>
+  </div>
+</section>
+
+      {/* TESTIMONIALS */}
       <section className="testimonials-content">
 
-        <div className="testimonials-heading">
+        <ScrollReveal className="testimonials-heading">
           <span className="section-label">FAMILY EXPERIENCES</span>
           <h2>Words That Mean So Much</h2>
           <p>
@@ -53,35 +81,37 @@ function Testimonials() {
             Their experiences reflect the care and dedication behind
             every memorial we create.
           </p>
-        </div>
+        </ScrollReveal>
 
         <div className="testimonials-grid">
           {testimonials.map((item, index) => (
-            <div className="testimonial-card" key={index}>
+            <ScrollReveal key={index} delay={index * 120}>
+              <div className="testimonial-card">
 
-              <Quote className="testimonial-quote-icon" size={34} />
+                <Quote className="testimonial-quote-icon" size={34} />
 
-              <div className="testimonial-stars">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <Star key={star} size={16} fill="currentColor" />
-                ))}
-              </div>
-
-              <h3>{item.title}</h3>
-
-              <p className="testimonial-message">
-                “{item.message}”
-              </p>
-
-              <div className="testimonial-author">
-                <span className="author-line"></span>
-                <div>
-                  <h4>{item.name}</h4>
-                  <p>{item.location}</p>
+                <div className="testimonial-stars">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <Star key={star} size={16} fill="currentColor" />
+                  ))}
                 </div>
-              </div>
 
-            </div>
+                <h3>{item.title}</h3>
+
+                <p className="testimonial-message">
+                  “{item.message}”
+                </p>
+
+                <div className="testimonial-author">
+                  <span className="author-line"></span>
+                  <div>
+                    <h4>{item.name}</h4>
+                    <p>{item.location}</p>
+                  </div>
+                </div>
+
+              </div>
+            </ScrollReveal>
           ))}
         </div>
 

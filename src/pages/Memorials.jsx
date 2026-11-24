@@ -1,3 +1,4 @@
+import ScrollReveal from '../components/ScrollReveal';
 import { useParams, Navigate } from 'react-router-dom';
 import MemorialSidebar, {
   memorialCategories
@@ -119,6 +120,7 @@ function Memorials() {
 
           <div className="memorial-main-content">
 
+          <ScrollReveal>
             <span className="section-label">
               MEMORIAL COLLECTION
             </span>
@@ -126,6 +128,7 @@ function Memorials() {
             <h2 className="selected-category-title">
               {selectedCategory.name}
             </h2>
+          </ScrollReveal>
 {category === 'inscriptions' ? (
   <div className="inscriptions-content">
 
@@ -138,19 +141,19 @@ function Memorials() {
       will be helpful in personalizing a forever detail.
     </p>
 
-    <div className="verses-grid">
+    <ScrollReveal className="verses-grid">
       {memorialVerses.map((verse, index) => (
         <div className="verse-item" key={index}>
           <span>{index + 1})</span>
           <p>{verse}</p>
         </div>
       ))}
-    </div>
+    </ScrollReveal>
 
     </div>
     ) : (
     <>
-        <div className="memorial-photo-grid">
+        <ScrollReveal className="memorial-photo-grid">
         {categoryImages.map(([path, image], index) => (
             <div
             className={`memorial-photo-card ${selectedImage === path ? 'is-selected' : ''}`}
@@ -162,7 +165,7 @@ function Memorials() {
             <img src={image} alt="Memorial design" />
             </div>
         ))}
-        </div>
+        </ScrollReveal>
 
         {categoryImages.length === 0 && (
         <p className="no-memorial-images">
@@ -171,13 +174,6 @@ function Memorials() {
         )}
     </>
     )}
-
-            {categoryImages.length === 0 && (
-              <p className="no-memorial-images">
-                No images found in this collection.
-              </p>
-            )}
-
           </div>
         </div>
       </section>
