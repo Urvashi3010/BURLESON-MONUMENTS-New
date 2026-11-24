@@ -34,11 +34,10 @@ function OrderingPrices() {
                 <li>Cemetery</li>
               </ol>
 
-              <img
-                className="ordering-flower"
-                src={memorialImage}
-                alt="Memorial photo"
-              />
+              <figure className="ordering-image-card">
+                <img src={memorialImage} alt="Memorial in a cemetery" />
+                <figcaption>Every detail is selected with care.</figcaption>
+              </figure>
             </div>
 
             <div className="ordering-options">
@@ -50,24 +49,33 @@ function OrderingPrices() {
             </div>
 
             <div className="granite-pricing">
+              <span className="pricing-kicker">PERSONALIZED QUOTES</span>
               <h2>Granite Prices</h2>
-              <h3>Fluctuate Annually Please Contact Our Staff For A Quote.</h3>
+              <p>
+                Granite prices fluctuate annually. Contact our staff for a
+                current quote tailored to your memorial.
+              </p>
             </div>
 
             <div className="ordering-phone">
-              <p>For additional information or to place an order, please call</p>
+              <p>Questions or ready to place an order?</p>
               <a href="tel:+18008632662">1-800-863-2662</a>
+              <span>Call our team for friendly, no-pressure assistance.</span>
             </div>
 
             <div className="ordering-assurance">
               <h3>Get the Service You Deserve With Burleson Monuments:</h3>
-              <p>There’s never any pressure or obligation.</p>
-              <p>All of our gravestones are guaranteed.</p>
-              <p>We obtain and complete the required cemetery forms for you free of charge.</p>
-              <p>
-                We offer custom design and engraving for cemetery memorials,
-                or you can choose from our wide selection of granite colors.
-              </p>
+              <ul>
+                <li>There’s never any pressure or obligation.</li>
+                <li>All of our gravestones are guaranteed.</li>
+                <li>
+                  We complete the required cemetery forms for you free of charge.
+                </li>
+                <li>
+                  Choose custom design and engraving or select from a wide
+                  range of granite colors.
+                </li>
+              </ul>
             </div>
           </div>
         </div>

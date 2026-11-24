@@ -155,8 +155,9 @@ useEffect(() => {
 
               <div className="contact-form-row">
                 <div className="form-group">
-                  <label>Your Name</label>
+                  <label htmlFor="contact-name">Your Name</label>
                   <input
+                    id="contact-name"
                     type="text"
                     name="name"
                     value={formData.name}
@@ -167,8 +168,9 @@ useEffect(() => {
                 </div>
 
                 <div className="form-group">
-                  <label>Email Address</label>
+                  <label htmlFor="contact-email">Email Address</label>
                   <input
+                    id="contact-email"
                     type="email"
                     name="email"
                     value={formData.email}
@@ -181,8 +183,9 @@ useEffect(() => {
 
               <div className="contact-form-row">
                 <div className="form-group">
-                  <label>Phone Number</label>
+                  <label htmlFor="contact-phone">Phone Number</label>
                   <input
+                    id="contact-phone"
                     type="tel"
                     name="phone"
                     value={formData.phone}
@@ -192,8 +195,9 @@ useEffect(() => {
                 </div>
 
                 <div className="form-group">
-                  <label>Subject</label>
+                  <label htmlFor="contact-subject">Subject</label>
                   <input
+                    id="contact-subject"
                     type="text"
                     name="subject"
                     value={formData.subject}
@@ -204,8 +208,9 @@ useEffect(() => {
               </div>
 
               <div className="form-group">
-                <label>Your Message</label>
+                <label htmlFor="contact-message">Your Message</label>
                 <textarea
+                  id="contact-message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
