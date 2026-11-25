@@ -1222,10 +1222,10 @@ textarea {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
-
-@media (max-width: 600px) {
+@media (max-width: 650px) {
   .memorial-photo-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px 10px;
   }
 
   .memorial-photo-card {
@@ -4554,4 +4554,84 @@ textarea {
   color: var(--dark);
   font-size: 15px;
   line-height: 1.3;
+}
+/* MEMORIALS MOBILE SPACING FIX */
+
+@media (max-width: 650px) {
+
+  /* Overall memorial page spacing */
+  .memorials-content {
+    padding: 20px 4%;
+  }
+
+  .memorial-layout {
+    gap: 20px;
+  }
+
+  .memorial-main-content {
+    width: 100%;
+  }
+
+  /* General memorial images */
+  .memorial-photo-grid {
+    gap: 12px;
+    margin-top: 15px;
+  }
+
+  .memorial-photo-card {
+    height: 160px;
+  }
+
+  /* Bronze plaques */
+  .bronze-plaque-page .memorial-photo-card {
+    height: 130px;
+    overflow: hidden;
+  }
+
+  .bronze-plaque-page .memorial-photo-grid {
+    gap: 12px 8px;
+  }
+
+  /* Laser etching */
+  .laser-etching-page {
+    padding: 5px 0 20px;
+  }
+
+  .laser-etching-intro {
+    margin-bottom: 15px;
+  }
+
+  .laser-etching-grid {
+    gap: 12px 10px;
+    margin-top: 10px;
+  }
+
+  .laser-etching-card img {
+    height: 115px;
+  }
+
+  .laser-etching-card p {
+    margin-top: 4px;
+    font-size: 13px;
+  }
+
+  /* Pet memorials */
+  .pet-memorials-grid {
+    gap: 12px;
+  }
+
+  .pet-memorial-card {
+    height: 170px;
+  }
+
+  /* Flower vases */
+  .flower-vase-section {
+    margin-bottom: 30px;
+  }
+
+  /* Granite colors */
+  .granite-colors-grid {
+    gap: 15px 10px;
+  }
+
 }
