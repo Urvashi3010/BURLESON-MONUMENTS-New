@@ -4635,3 +4635,48 @@ textarea {
   }
 
 }
+.contact-office-hours {
+  margin-top: 28px;
+  padding: 22px;
+  background: var(--light-grey);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.office-hours-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  color: var(--navy);
+}
+
+.office-hours-heading svg {
+  color: var(--gold);
+  width: 22px;
+  height: 22px;
+}
+
+.office-hours-heading h4 {
+  margin: 0;
+  font-size: 19px;
+}
+
+.office-hours-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  color: var(--dark);
+}
+
+.office-hours-closed {
+  margin-top: 16px;
+  color: var(--navy);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+

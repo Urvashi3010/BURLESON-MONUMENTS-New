@@ -136,6 +136,26 @@ useEffect(() => {
               </div>
             </div>
 
+              <div className="contact-office-hours">
+                <div className="office-hours-heading">
+                  <Clock />
+                  <h4>Office Hours</h4>
+                </div>
+
+                <div className="office-hours-row">
+                  <span>Tuesday - Friday</span>
+                  <span>10:00 AM - 5:00 PM</span>
+                </div>
+
+                <div className="office-hours-row">
+                  <span>Saturday</span>
+                  <span>10:00 AM - 3:00 PM</span>
+                </div>
+
+                <div className="office-hours-closed">
+                  Closed Sunday and Monday
+                </div>
+              </div>
             <div className="contact-note">
               <h4>Personalized Assistance</h4>
               <p>
