@@ -99,7 +99,39 @@ function Memorials() {
       numeric: true
     }));
 
-    
+    const flowerVaseSections = {
+  graniteShapes: [
+    { file: 'flower-vases-01', name: 'Tapered' },
+    { file: 'flower-vases-02', name: 'Turned' }
+  ],
+
+  graniteColors: [
+    { file: 'flower-vases-03', name: 'Georgia Gray' },
+    { file: 'flower-vases-04', name: 'Bahama Blue' },
+    { file: 'flower-vases-05', name: 'Sunset Red' },
+    { file: 'flower-vases-06', name: 'Jet Black' },
+    { file: 'flower-vases-07', name: 'Indian Red' },
+    { file: 'flower-vases-08', name: 'Salisbury Pink' },
+    { file: 'flower-vases-09', name: 'Flash Black' },
+    { file: 'flower-vases-10', name: 'Mahogany' },
+    { file: 'flower-vases-11', name: 'Morning Rose' }
+  ],
+
+  bronze: [
+    { file: 'flower-vases-13', name: 'Bronze Flower Vase Options' },
+    { file: 'flower-vases-14', name: 'Bronze Flower Vase' }
+  ],
+
+  metalCraft: [
+    { file: 'flower-vases-15', name: 'Monarch' },
+    { file: 'flower-vases-16', name: 'Classic' },
+    { file: 'flower-vases-17', name: 'Crown' },
+    { file: 'flower-vases-18', name: 'Regal' }
+  ]
+};
+
+const getFlowerVaseImage = (file) =>
+  categoryImages.find(([path]) => path.includes(file))?.[1];
   return (
     <div className="memorials-page">
 
@@ -118,8 +150,11 @@ function Memorials() {
 
           <MemorialSidebar />
 
-          <div className="memorial-main-content">
-
+          <div
+  className={`memorial-main-content ${
+    category === 'bronze-plaques' ? 'bronze-plaque-page' : ''
+  }`}
+>
           {category !== 'memorial-photos' && (
             <ScrollReveal>
               <span className="section-label">
@@ -131,7 +166,218 @@ function Memorials() {
               </h2>
             </ScrollReveal>
           )}
-{category === 'inscriptions' ? (
+{category === 'laser-etching' ? (
+
+  <div className="laser-etching-page">
+
+    <p className="laser-etching-intro">
+      Add a personal touch to your memorial with detailed laser
+      etching. Explore our collection of designs and custom
+      engraving options.
+    </p>
+
+<div className="laser-etching-grid">
+  {[
+    'Landscape with Deer',
+    'Fishing and Camping theme',
+    'Farm theme with Cows',
+    'Tranquil House Landscape',
+    'Camp near Lake scene',
+    'Fishing theme',
+    'Church Background',
+    'Construction',
+    'Fish Jumping',
+    'Fishing Theme in the Mountains',
+    'Fishing in Boat'
+  ].map((name, index) => {
+    const item = categoryImages[index];
+
+    if (!item) return null;
+
+    return (
+      <div className="laser-etching-card" key={item[0]}>
+        <img
+          src={item[1]}
+          alt={name}
+          loading={index < 2 ? 'eager' : 'lazy'}
+          decoding="async"
+        />
+         <p>{name}</p>
+       </div>
+          );
+        })}
+      </div>
+
+    <p className="laser-etching-contact">
+      Contact us to discuss personalized laser etching options.
+    </p>
+
+  </div>
+
+) : category === 'pet-memorials' ? (
+
+  <div className="pet-memorials-page">
+
+    <p className="pet-memorials-intro">
+      Our pets hold a special place in our hearts.
+      Explore our collection of pet memorials created
+      to honor the love and memories of your faithful companions.
+    </p>
+
+    <div className="pet-memorials-grid">
+      {categoryImages.map(([path, image], index) => (
+        <div className="pet-memorial-card" key={path}>
+          <img
+            src={image}
+            alt={`Pet memorial design ${index + 1}`}
+            loading={index < 2 ? 'eager' : 'lazy'}
+            decoding="async"
+          />
+        </div>
+      ))}
+    </div>
+
+    <p className="pet-memorials-contact">
+      Contact us to discuss a memorial for your beloved pet.
+    </p>
+
+  </div>
+
+) : category === 'granite-colors' ? (
+  <div className="granite-colors-page">
+
+    <h2>Granite Color Selection</h2>
+
+    <p className="granite-colors-intro">
+      Choose from our selection of beautiful granite colors.
+      Each natural stone has its own unique pattern and character.
+    </p>
+
+    <div className="granite-colors-grid">
+      {categoryImages.map(([path, image], index) => {
+        const fileName = path.split('/').pop();
+        const colorName = fileName
+          .replace(/\.[^/.]+$/, '')
+          .replace(/[-_]/g, ' ')
+          .replace(/\d+/g, '')
+          .trim();
+
+        return (
+          <div className="granite-color-card" key={path}>
+            <img
+              src={image}
+              alt={colorName || `Granite color ${index + 1}`}
+              loading="lazy"
+            />
+            <h3>{colorName || `Granite Color ${index + 1}`}</h3>
+          </div>
+        );
+      })}
+    </div>
+
+    <p className="granite-colors-note">
+      Granite is a natural material. Actual colors and patterns may vary
+      slightly from the photographs shown.
+    </p>
+
+    <p className="granite-colors-contact">
+      Contact our staff to discuss available granite options.
+    </p>
+
+  </div>
+) : category === 'flower-vases' ? (
+  <div className="flower-vases-page">
+
+    {/* GRANITE FLOWER VASES */}
+    <section className="flower-vase-section">
+
+      <h2>1) Granite Flower Vases</h2>
+
+      <p className="flower-vase-subtitle">
+        (2 shape options including Tapered and Turned)
+      </p>
+
+      <div className="flower-vase-shapes">
+        {flowerVaseSections.graniteShapes.map((item) => (
+          <div className="flower-vase-card" key={item.file}>
+            <img
+              src={getFlowerVaseImage(item.file)}
+              alt={item.name}
+              loading="lazy"
+            />
+            <h3>{item.name}</h3>
+          </div>
+        ))}
+      </div>
+
+      <div className="granite-color-grid">
+        {flowerVaseSections.graniteColors.map((item) => (
+          <div className="flower-vase-card" key={item.file}>
+            <img
+              src={getFlowerVaseImage(item.file)}
+              alt={item.name}
+              loading="lazy"
+            />
+            <h3>{item.name}</h3>
+          </div>
+        ))}
+      </div>
+
+    </section>
+
+    {/* BRONZE FLOWER VASES */}
+    <section className="flower-vase-section">
+
+      <h2>2) Bronze Flower Vases</h2>
+
+      <p className="flower-vase-subtitle">
+        4 Bronze Options Include:
+      </p>
+
+      <p className="bronze-vase-options">
+        Signature - Regency <span>|</span> Garden - Patrician
+      </p>
+
+      <div className="bronze-vase-grid">
+        {flowerVaseSections.bronze.map((item) => (
+          <div className="flower-vase-card" key={item.file}>
+            <img
+              src={getFlowerVaseImage(item.file)}
+              alt={item.name}
+              loading="lazy"
+            />
+          </div>
+        ))}
+      </div>
+
+    </section>
+
+    {/* METALCRAFT FLOWER VASES */}
+    <section className="flower-vase-section">
+
+      <h2>3) MetalCraft Flower Vases</h2>
+
+      <div className="metalcraft-vase-grid">
+        {flowerVaseSections.metalCraft.map((item) => (
+          <div className="flower-vase-card" key={item.file}>
+            <img
+              src={getFlowerVaseImage(item.file)}
+              alt={item.name}
+              loading="lazy"
+            />
+            <h3>{item.name}</h3>
+          </div>
+        ))}
+      </div>
+
+    </section>
+
+    <p className="flower-vase-contact">
+      Contact our staff to discuss details.
+    </p>
+
+  </div>
+) : category === 'inscriptions' ? (
   <div className="inscriptions-content">
 
     <h3>Memorial Verses – Epitaphs</h3>
@@ -186,7 +432,11 @@ function Memorials() {
   </section>
 ) : (
     <>
-        <ScrollReveal className="memorial-photo-grid">
+        <div
+          className={`memorial-photo-grid ${
+            category === 'bronze-plaques' ? 'bronze-plaque-grid' : ''
+          }`}
+        >
         {categoryImages.map(([path, image], index) => (
             <div
             className={`memorial-photo-card ${selectedImage === path ? 'is-selected' : ''}`}
@@ -203,7 +453,7 @@ function Memorials() {
             />
             </div>
         ))}
-        </ScrollReveal>
+        </div>
 
         {categoryImages.length === 0 && (
         <p className="no-memorial-images">

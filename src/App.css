@@ -1,4 +1,5 @@
 /* GLOBAL STYLING */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
 
 :root {
   --navy: #25249b;
@@ -19,11 +20,13 @@
 }
 
 body {
-  font-family: var(--site-font);
+  font-family: 'DM Sans', sans-serif;
   color: var(--dark);
-  background: var(--white);
 }
 
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
 a {
   text-decoration: none;
   color: inherit;
@@ -4211,4 +4214,344 @@ textarea {
   .contact-information {
     padding: 25px 20px;
   }
+}
+
+.memorial-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 30px;
+}
+
+.memorial-photo-card {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+}
+
+.memorial-photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+/* Bronze Plaques - Only this category */
+.bronze-plaque-page .memorial-photo-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.bronze-plaque-page .memorial-photo-card {
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.bronze-plaque-page .memorial-photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+/* FLOWER VASES PAGE */
+
+.flower-vases-page {
+  width: 100%;
+  padding: 10px 15px 50px;
+}
+
+.flower-vase-section {
+  margin-bottom: 55px;
+  text-align: center;
+}
+
+.flower-vase-section h2 {
+  font-size: 25px;
+  color: var(--dark);
+  margin-bottom: 12px;
+}
+
+.flower-vase-subtitle {
+  color: var(--muted);
+  font-size: 15px;
+  margin-bottom: 25px;
+}
+
+.bronze-vase-options {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 25px;
+}
+
+.bronze-vase-options span {
+  color: var(--gold);
+  margin: 0 8px;
+}
+
+.flower-vase-shapes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+  max-width: 650px;
+  margin: 0 auto 40px;
+}
+
+.granite-color-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px 20px;
+}
+
+.bronze-vase-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+  max-width: 650px;
+  margin: auto;
+}
+
+.metalcraft-vase-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+  max-width: 700px;
+  margin: auto;
+}
+
+.flower-vase-card {
+  text-align: center;
+}
+
+.flower-vase-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: contain;
+  display: block;
+  margin: auto;
+  transition: transform 0.3s ease;
+}
+
+.flower-vase-card img:hover {
+  transform: scale(1.04);
+}
+
+.flower-vase-card h3 {
+  color: var(--dark);
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+.flower-vase-contact {
+  text-align: center;
+  color: var(--muted);
+  font-size: 16px;
+  margin-top: 35px;
+}
+
+@media (max-width: 650px) {
+  .granite-color-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .flower-vase-shapes,
+  .bronze-vase-grid,
+  .metalcraft-vase-grid {
+    gap: 20px 12px;
+  }
+
+  .flower-vase-card img {
+    height: 180px;
+  }
+
+  .flower-vase-section h2 {
+    font-size: 21px;
+  }
+}
+/* GRANITE COLORS PAGE */
+
+.granite-colors-page {
+  width: 100%;
+  padding: 10px 15px 45px;
+  text-align: center;
+}
+
+.granite-colors-page > h2 {
+  font-size: 27px;
+  color: var(--dark);
+  margin-bottom: 15px;
+}
+
+.granite-colors-intro {
+  max-width: 650px;
+  margin: 0 auto 35px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.granite-colors-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px 22px;
+}
+
+.granite-color-card {
+  text-align: center;
+}
+
+.granite-color-card img {
+  width: 100%;
+  height: 190px;
+  object-fit: contain;
+  display: block;
+  margin: auto;
+}
+
+.granite-color-card h3 {
+  color: var(--dark);
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 12px;
+  text-transform: capitalize;
+}
+
+.granite-colors-note {
+  margin: 40px auto 15px;
+  max-width: 650px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.granite-colors-contact {
+  color: var(--dark);
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+@media (max-width: 650px) {
+  .granite-colors-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px 15px;
+  }
+
+  .granite-color-card img {
+    height: 150px;
+  }
+
+  .granite-colors-page > h2 {
+    font-size: 22px;
+  }
+}
+/* PET MEMORIALS PAGE */
+
+.pet-memorials-page {
+  width: 100%;
+  padding: 10px 0 30px;
+}
+
+.pet-memorials-intro {
+  color: var(--muted);
+  line-height: 1.8;
+  max-width: 750px;
+  margin-bottom: 30px;
+}
+
+.pet-memorials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+}
+
+.pet-memorial-card {
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.pet-memorial-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.pet-memorial-card img:hover {
+  transform: scale(1.04);
+}
+
+.pet-memorials-contact {
+  margin-top: 30px;
+  color: var(--muted);
+  text-align: center;
+}
+/* LASER ETCHING PAGE */
+
+.laser-etching-page {
+  width: 100%;
+  padding: 10px 0 30px;
+}
+
+.laser-etching-intro {
+  color: var(--muted);
+  line-height: 1.8;
+  max-width: 750px;
+  margin-bottom: 30px;
+}
+.laser-etching-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 15px;
+  row-gap: 18px;
+  margin-top: 20px;
+}
+
+.laser-etching-card img:hover {
+  transform: scale(1.04);
+}
+
+.laser-etching-contact {
+  margin-top: 30px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.laser-etching-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.laser-etching-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: contain;
+  display: block;
+}
+
+.laser-etching-card p {
+  width: 100%;
+  margin: 2px 0 0;
+  text-align: center;
+  color: var(--dark);
+  font-size: 15px;
+  line-height: 1.3;
 }
